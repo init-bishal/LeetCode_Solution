@@ -1,0 +1,14 @@
+class Solution(object):
+    def searchRange(self, nums, target):
+        if target not in nums: 
+            end=index=-1
+        else:
+            index=nums.index(target)
+        end=index
+        if index!=-1:
+            for i in range(index+1,len(nums)):
+                if nums[i]==target:
+                    end+=1
+                else:
+                    break
+        return [index,end]
