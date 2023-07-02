@@ -1,0 +1,35 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack=[]
+        make=True
+        # s=s[1:len(s)-1]
+        
+        for i in s:
+            if i=='(' or i=='{' or i=='[':
+                stack.append(i)
+            if i==')' or i=='}' or i==']':
+                # if not stack:
+                if stack: 
+                    pop_=stack.pop()
+                else:
+                    pop_='-1'
+                # else:
+                #     pop_=-1
+                if (pop_=='(' and i==')') or (pop_=='{' and i=='}') or (pop_=='[' and i==']'):
+                    pass
+                else:
+                    make=False
+                    break 
+
+                    
+        if not make:
+            return False
+        elif not stack:
+            return True 
+        else:
+            return False
+        # print(stack)
+
+
+
+            
