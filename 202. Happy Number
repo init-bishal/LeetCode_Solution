@@ -1,0 +1,6 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        while n!=1 and  n!=4:
+            list_=str(n)
+            n=sum([int(i)**2 for i in list_])
+        return n==1
