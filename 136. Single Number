@@ -1,0 +1,7 @@
+from collections import Counter
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        c=dict(Counter(nums))
+        d=[x for (x,y) in c.items() if c[x]==1]
+        
+        return d[0]
