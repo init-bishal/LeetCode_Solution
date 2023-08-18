@@ -1,0 +1,32 @@
+from decimal import *
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        s=s.strip()
+        fin=0
+        negative=False
+        if not s:
+            return 0 
+        elif s[0]=='-':
+            negative=True 
+        elif s[0]=='+':
+            pass
+        elif not s[0].isdigit():
+            return 0
+        else:
+            fin=ord(s[0])-ord('0')
+        for i in range(1,len(s)):
+            if s[i].isdigit():
+                t=ord(s[i])-ord('0')
+                fin=fin*10+t
+                if not negative and fin>=2147483647:
+                    return 2147483647
+                if negative and fin>=2147483648:
+                    return -2147483648
+            else: 
+                break 
+        if negative:
+            return -fin
+        else:
+            return fin 
+        
+        
