@@ -1,0 +1,6 @@
+with temp as(
+    select * from person 
+)
+DELETE FROM Person WHERE id NOT IN ( SELECT MIN(id) FROM 
+
+temp GROUP BY email)
