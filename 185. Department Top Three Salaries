@@ -1,0 +1,9 @@
+with temp as 
+(select b.name as  Department,a.name as  Employee,a.salary as Salary, 
+dense_rank() over(partition by b.id order by a.salary desc) as rnk 
+
+ from 
+Employee a inner join Department b on a.departmentId=b.id
+ ) 
+
+select Department, Employee , Salary from temp where rnk<=3 ; 
