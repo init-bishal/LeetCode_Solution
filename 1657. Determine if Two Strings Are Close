@@ -1,0 +1,25 @@
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        a=dict()
+        b=dict()
+        if len(word1)!=len(word2):
+            return False 
+        else:
+            for i in word1:
+                a[i]=a.get(i,0)+1
+            for i in word2:
+                b[i]=b.get(i,0)+1
+            return sorted(a.values())==sorted(b.values()) and set(a.keys())==set(b.keys())
+
+-----------------------------------------------------------------------------------------------------------------
+from collections import Counter
+class Solution:
+    def closeStrings(self, word1: str, word2: str) -> bool:
+        a=dict()
+        b=dict()
+        if len(word1)!=len(word2):
+            return False 
+        else:
+            a=Counter(word1)
+            b=Counter(word2)
+            return sorted(a.values())==sorted(b.values()) and set(a.keys())==set(b.keys())
